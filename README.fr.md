@@ -6,6 +6,8 @@
 Système de gestion de loterie développé en PHP, MySQL, CSS et JavaScript vanilla.
 Sans dépendances, sans build, sans framework : téléverser, installer, utiliser.
 
+Créé avec l'assistance de l'intelligence artificielle (IA).
+
 ### Fonctionnalités
 
 - **Interface en 5 langues** (English par défaut, Español, Deutsch, Português, Français), extensible (voir [🌍 Langues](#-langues))
@@ -292,4 +294,4 @@ supprime les plus anciennes au-delà de `MAX_BACKUPS`. État visible dans l’ad
 
 ### Licence
 
-MIT
+GPL-3.0 — voir le fichier `LICENSE`.

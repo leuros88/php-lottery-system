@@ -6,6 +6,8 @@
 Lotterie-Verwaltungssystem, entwickelt mit PHP, MySQL, CSS und Vanilla-JavaScript.
 Keine Abhängigkeiten, kein Build, kein Framework: hochladen, installieren, nutzen.
 
+Mit Unterstützung künstlicher Intelligenz (KI) erstellt.
+
 ### Funktionen
 
 - **Oberfläche in 5 Sprachen** (Standard English, Español, Deutsch, Português, Français), erweiterbar (siehe [🌍 Sprachen](#-sprachen))
@@ -298,4 +300,4 @@ Projektdateien und löscht ältere jenseits von `MAX_BACKUPS`. Status im Admin (
 
 ### Lizenz
 
-MIT
+GPL-3.0 — siehe Datei `LICENSE`.

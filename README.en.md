@@ -6,6 +6,8 @@
 Lottery management system built with PHP, MySQL, CSS and vanilla JavaScript.
 No dependencies, no build, no framework: upload, install and use.
 
+Created with artificial intelligence (AI) assistance.
+
 ### Features
 
 - **Interface in 5 languages** (English by default, Español, Deutsch, Português, Français), extensible to more (see [🌍 Languages](#-languages))
@@ -312,4 +314,4 @@ project files, and deletes older ones beyond
 
 ### License
 
-MIT
+GPL-3.0 — see `LICENSE` file.

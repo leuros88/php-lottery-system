@@ -6,6 +6,8 @@
 Sistema de gestão de lotaria desenvolvido com PHP, MySQL, CSS e JavaScript vanilla.
 Sem dependências, sem build, sem framework: carregar, instalar e usar.
 
+Criado com assistência de inteligência artificial (IA).
+
 ### Características
 
 - **Interface em 5 idiomas** (English por defeito, Español, Deutsch, Português, Français), extensível (ver [🌍 Idiomas](#-idiomas))
@@ -292,4 +294,4 @@ e apaga as mais antigas além de `MAX_BACKUPS`. O estado vê-se no admin (*Backu
 
 ### Licença
 
-MIT
+GPL-3.0 — ver ficheiro `LICENSE`.
