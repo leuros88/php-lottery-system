@@ -1,0 +1,29 @@
+DirectoryIndex index.php
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/ - [F,L]
+    RewriteRule ^sql/ - [F,L]
+    RewriteRule ^cron/ - [F,L]
+    # Uncomment after installation to block the installer and migration script:
+    # RewriteRule ^install\.php$ - [F,L]
+    # RewriteRule ^migrate\.php$ - [F,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# PHP settings
+<IfModule mod_php.c>
+    php_flag session.cookie_httponly on
+    php_flag session.use_only_cookies on
+    php_value session.cookie_samesite "Strict"
+</IfModule>

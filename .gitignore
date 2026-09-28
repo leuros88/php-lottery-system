@@ -1,0 +1,17 @@
+# Backups con datos reales (nombres de participantes, etc.) — nunca publicar
+cron/backups/
+*.tar.gz
+*.sql.gz
+*.sql.bak
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs y temporales
+*.log
