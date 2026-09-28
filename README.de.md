@@ -152,7 +152,7 @@ unempfindlich. Danach `http://dein-server/panel-x7k9q2/` aufrufen;
 der alte Pfad existiert nicht mehr (404).
 
 > Nur Buchstaben, Zahlen, Bindestriche und Unterstriche, keine Slashes.
-> Nach dem Umbenennen trotzdem `install.php` und `migrate.php` löschen.
+> Nach dem Umbenennen trotzdem `install.php` löschen.
 
 ### Admin-Panel (`/admin/` Standard, umbenennbar via `ADMIN_DIR`)
 
@@ -213,14 +213,6 @@ Preise gewinnen (`custom_texts.unique_winners = '0'`). Bei **Einmaliger Gewinner
 (`'1'`) kann jeder Teilnehmer nur einen Preis gewinnen, Gewinner sind
 von weiteren Ziehungen ausgeschlossen.
 
-#### Bestehende Installationen: migrate.php
-
-War die DB schon vor dieser Änderung angelegt, im Admin
-`/migrate.php` im Browser öffnen: erstellt `draw_audits` falls fehlend und fügt
-`draw_mode` (`manual`), `unique_winners` (`0`), `site_title` und
-`admin_lang_default` (`en`) per `INSERT IGNORE` ein (idempotent, wiederholbar).
-**Danach löschen**, wie `install.php`.
-
 Beispiele:
 
 | Gezogen | Freie belegte Nummern | Gewinner | Grund |
@@ -255,7 +247,6 @@ Projektdateien und löscht ältere jenseits von `MAX_BACKUPS`. Status im Admin (
 ```
 ├── index.php                # Öffentliche Seite
 ├── install.php              # Installer (nach Gebrauch löschen)
-├── migrate.php              # Migration für bestehende DBs (nach Gebrauch löschen)
 ├── sql/
 │   └── schema.sql           #   Komplettes Schema (9 Tabellen + Standardtexte)
 ├── admin/           # Admin-Panel
@@ -292,7 +283,7 @@ Projektdateien und löscht ältere jenseits von `MAX_BACKUPS`. Status im Admin (
 ### Sicherheit
 
 - Standardzugang (`admin` / `admin2026`) nach der Installation ändern.
-- **`install.php` und `migrate.php` danach löschen oder sperren**.
+- **`install.php` danach löschen oder sperren**.
 - `BACKUP_DIR` in Produktion außerhalb des öffentlichen Verzeichnisses legen.
 - Passwörter mit `password_hash()` gespeichert; Login sperrt die IP
   nach 5 Fehlversuchen für 48 h.

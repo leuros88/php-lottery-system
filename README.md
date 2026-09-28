@@ -154,7 +154,7 @@ inmune al renombrado. Entra después en
 (error 404).
 
 > Solo letras, números, guiones y guiones bajos, sin barras.
-> Tras renombrar, borra `install.php` y `migrate.php` igualmente.
+> Tras renombrar, borra `install.php` igualmente.
 
 ### Panel de administración (`/admin/` por defecto, renombrable vía `ADMIN_DIR`)
 
@@ -224,15 +224,6 @@ excluidos de los siguientes sorteos.
 - El ajuste vive en el dashboard (`dashboard.php` → Winner Rules) y lo aplican
   `findClosestParticipant()`, `draw.php` y `ajax.php`.
 
-#### Instalaciones existentes: migrate.php
-
-Si la BD ya estaba creada antes de este cambio, entra al admin y abre
-`/migrate.php` en el navegador: crea `draw_audits` si falta e inserta
-`draw_mode` (`manual`), `unique_winners` (`0`, repetir permitido),
-`site_title` y `admin_lang_default` (`en`, idioma del panel) con
-`INSERT IGNORE` (idempotente, se puede re-ejecutar). **Bórralo después**,
-igual que `install.php`.
-
 Ejemplos:
 
 | Sorteado | Números ocupados libres | Ganador | Motivo |
@@ -270,7 +261,6 @@ la BD + los archivos del proyecto, y borra las más antiguas superando
 ```
 ├── index.php                # Página pública
 ├── install.php              # Instalador (eliminar tras usar)
-├── migrate.php              # Migración para BD ya instaladas (eliminar tras usar)
 ├── sql/
 │   └── schema.sql           #   Esquema completo (9 tablas + textos por defecto)
 ├── admin/           # Panel de administración
@@ -307,7 +297,7 @@ la BD + los archivos del proyecto, y borra las más antiguas superando
 ### Seguridad
 
 - Cambia las credenciales por defecto (`admin` / `admin2026`) tras instalar.
-- **Elimina o bloquea `install.php` y `migrate.php`** después de usarlos.
+- **Elimina o bloquea `install.php`** después de usarlo.
 - Apunta `BACKUP_DIR` fuera del directorio público en producción.
 - Las contraseñas se guardan con `password_hash()`; el login bloquea la IP
   tras 5 intentos fallidos durante 48 h.

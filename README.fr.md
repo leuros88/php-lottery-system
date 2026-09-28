@@ -151,7 +151,7 @@ Le JS admin utilise un chemin relatif (`ajax.php?...`), insensible aussi.
 Allez ensuite à `http://votre-serveur/panel-x7k9q2/` ; l’ancien chemin n’existe plus (404).
 
 > Lettres, chiffres, tirets et underscores uniquement, sans barres.
-> Après renommage, supprimez quand même `install.php` et `migrate.php`.
+> Après renommage, supprimez quand même `install.php`.
 
 ### Panneau d’administration (`/admin/` par défaut, renommable via `ADMIN_DIR`)
 
@@ -209,14 +209,6 @@ plusieurs lots (`custom_texts.unique_winners = '0'`). Avec **Gagnant unique**
 (`'1'`), chacun ne peut gagner qu’un lot et les gagnants sont exclus des
 tirages suivants.
 
-#### Installations existantes : migrate.php
-
-Si la BD existait déjà, connectez-vous à l’admin et ouvrez `/migrate.php` dans
-le navigateur : crée `draw_audits` si manquante et insère `draw_mode`
-(`manual`), `unique_winners` (`0`), `site_title` et `admin_lang_default`
-(`en`) avec `INSERT IGNORE` (idempotent). **Supprimez-le ensuite**,
-comme `install.php`.
-
 Exemples :
 
 | Tiré | Numéros libres occupés | Gagnant | Motif |
@@ -249,7 +241,6 @@ supprime les plus anciennes au-delà de `MAX_BACKUPS`. État visible dans l’ad
 ```
 ├── index.php                # Page publique
 ├── install.php              # Installateur (supprimer après usage)
-├── migrate.php              # Migration pour BD existantes (supprimer après usage)
 ├── sql/
 │   └── schema.sql           #   Schéma complet (9 tables + textes par défaut)
 ├── admin/           # Panneau d’administration
@@ -286,7 +277,7 @@ supprime les plus anciennes au-delà de `MAX_BACKUPS`. État visible dans l’ad
 ### Sécurité
 
 - Changez les identifiants par défaut (`admin` / `admin2026`) après installation.
-- **Supprimez ou bloquez `install.php` et `migrate.php`** après usage.
+- **Supprimez ou bloquez `install.php`** après usage.
 - Pointez `BACKUP_DIR` hors du répertoire public en production.
 - Mots de passe stockés avec `password_hash()` ; la connexion bloque l’IP
   après 5 échecs pendant 48 h.

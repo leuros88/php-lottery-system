@@ -9,9 +9,8 @@ Options -Indexes
     RewriteRule ^includes/ - [F,L]
     RewriteRule ^sql/ - [F,L]
     RewriteRule ^cron/ - [F,L]
-    # Uncomment after installation to block the installer and migration script:
+    # Uncomment after installation to block the installer:
     # RewriteRule ^install\.php$ - [F,L]
-    # RewriteRule ^migrate\.php$ - [F,L]
 </IfModule>
 
 # Security headers

@@ -154,7 +154,7 @@ immune to renaming. Then go to
 (404 error).
 
 > Only letters, numbers, dashes and underscores, no slashes.
-> After renaming, delete `install.php` and `migrate.php` anyway.
+> After renaming, delete `install.php` anyway.
 
 ### Admin panel (`/admin/` by default, renameable via `ADMIN_DIR`)
 
@@ -223,15 +223,6 @@ excluded from subsequent draws.
 - The setting lives in the dashboard (`dashboard.php` → Winner Rules) and is applied by
   `findClosestParticipant()`, `draw.php` and `ajax.php`.
 
-#### Existing installs: migrate.php
-
-If the DB was already created before this change, log in to the admin and open
-`/migrate.php` in the browser: it creates `draw_audits` if missing and inserts
-`draw_mode` (`manual`), `unique_winners` (`0`, repeat allowed),
-`site_title` and `admin_lang_default` (`en`, panel language) with
-`INSERT IGNORE` (idempotent, can be re-run). **Delete it afterwards**,
-just like `install.php`.
-
 Examples:
 
 | Drawn | Free taken numbers | Winner | Reason |
@@ -269,7 +260,6 @@ project files, and deletes older ones beyond
 ```
 ├── index.php                # Public page
 ├── install.php              # Installer (delete after use)
-├── migrate.php              # Migration for already-installed DBs (delete after use)
 ├── sql/
 │   └── schema.sql           #   Full schema (9 tables + default texts)
 ├── admin/           # Admin panel
@@ -306,7 +296,7 @@ project files, and deletes older ones beyond
 ### Security
 
 - Change the default credentials (`admin` / `admin2026`) after installing.
-- **Delete or block `install.php` and `migrate.php`** after using them.
+- **Delete or block `install.php`** after using it.
 - Point `BACKUP_DIR` outside the public directory in production.
 - Passwords are stored with `password_hash()`; login blocks the IP
   after 5 failed attempts for 48 h.

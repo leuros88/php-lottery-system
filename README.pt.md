@@ -152,7 +152,7 @@ O JS do admin usa um caminho relativo (`ajax.php?...`), também
 imune. Depois entra em `http://teu-servidor/panel-x7k9q2/`; o caminho antigo deixa de existir (404).
 
 > Só letras, números, hífenes e underscores, sem barras.
-> Após renomear, apaga `install.php` e `migrate.php` na mesma.
+> Após renomear, apaga `install.php` na mesma.
 
 ### Painel de administração (`/admin/` por defeito, renomeável via `ADMIN_DIR`)
 
@@ -210,13 +210,6 @@ prémios (`custom_texts.unique_winners = '0'`). Se ativares **Unique winner**
 (`'1'`), cada participante só pode ganhar um prémio e os vencedores ficam
 excluídos dos sorteios seguintes.
 
-#### Instalações existentes: migrate.php
-
-Se a BD já existia antes desta mudança, entra no admin e abre `/migrate.php`
-no navegador: cria `draw_audits` se faltar e insere `draw_mode` (`manual`),
-`unique_winners` (`0`), `site_title` e `admin_lang_default` (`en`) com
-`INSERT IGNORE` (idempotente). **Apaga-o depois**, como o `install.php`.
-
 Exemplos:
 
 | Sorteado | Números livres ocupados | Vencedor | Motivo |
@@ -249,7 +242,6 @@ e apaga as mais antigas além de `MAX_BACKUPS`. O estado vê-se no admin (*Backu
 ```
 ├── index.php                # Página pública
 ├── install.php              # Instalador (eliminar após usar)
-├── migrate.php              # Migração para BDs já instaladas (eliminar após usar)
 ├── sql/
 │   └── schema.sql           #   Esquema completo (9 tabelas + textos por defeito)
 ├── admin/           # Painel de administração
@@ -286,7 +278,7 @@ e apaga as mais antigas além de `MAX_BACKUPS`. O estado vê-se no admin (*Backu
 ### Segurança
 
 - Altera as credenciais por defeito (`admin` / `admin2026`) após instalar.
-- **Elimina ou bloqueia `install.php` e `migrate.php`** após os usar.
+- **Elimina ou bloqueia `install.php`** após o usar.
 - Aponta `BACKUP_DIR` para fora do diretório público em produção.
 - As palavras-passe guardam-se com `password_hash()`; o login bloqueia o IP
   após 5 tentativas falhadas durante 48 h.
